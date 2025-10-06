@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/icons-related/initial-draft/create-tables.sql
+#  - include:
+#      file: db/changelog/icons-related/001-create-icon-table.sql
+#  - include:
+#      file: db/changelog/icons-related/002-create-iconSets-table.sql
+#  - include:
+#      file: db/changelog/icons-related/005-create-tags-table.sql
+#  - include:
+#      file: db/changelog/icons-related/004-create-icon-tags-table.sql
+#  - include:
+#      file: db/changelog/icons-related/003-create-posting-table.sql

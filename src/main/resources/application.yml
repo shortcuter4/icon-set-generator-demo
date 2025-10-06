@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: acceptor-service
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:postgres}
+    username: ${DB_USER:admin}
+    password: ${DB_PASSWORD:admin}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    enabled: true
+    relativeToChangelogFile: true
+
+  docker:
+    compose:
+      enabled: false
+
+
+minio:
+  url: ${MINIO_URL:http://localhost:9009}
+  bucket-name: ${MINIO_BUCKET:icons}
+  access-key: ${MINIO_ACCESS_KEY:na1iKTB9LV5LNc4B9kqo}
+  secret-key: ${MINIO_SECRET_KEY:VujGRa3lXErHa3AkBjLMfWWg1NnRPsSBCD33fawh}
+
