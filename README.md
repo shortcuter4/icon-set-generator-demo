@@ -105,4 +105,14 @@ Internally calls the PostgreSQL function `generateSetFromTags`.
 
   ![Tables Diagram](diagram-draft1.png)
 
+# System Constraints and Design Considerations (for the future)
+## Minimum Set Size
+- **Problem:**
+  If the requested set size is too small it will most likely give overlap check error at some point for every incoming request (whose set size is 1,2 for example). To prevent the overlap checking logic to trigger false overlap errors, there must be a constraint to set minimum set size (5 for example)
+- **Constraint:**
+  The minimum set size must be at least 5 (it can be configurable)
+- **Validation Rule:**
+  if (setSize < 5 ) then reject the request (400 Bad Request)
+  
+
 
