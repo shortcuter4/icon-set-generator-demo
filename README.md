@@ -113,6 +113,23 @@ Internally calls the PostgreSQL function `generateSetFromTags`.
   The minimum set size must be at least 5 (it can be configurable)
 - **Validation Rule:**
   if (setSize < 5 ) then reject the request (400 Bad Request)
+
+## Tag based limitation
+- **Problem:**
+  When multiple tags are selected for set generation, random sampling might possibly over represent a single tag (for example; user chose tags like bikes, cars, blue.. but when icon set generated, it only randomly picked icons from only car tags omitting the others, because it is random)
+- **Constraint:**
+  Impose a maximum icon count per tag (e.g., perTagLimit < setSize * 0.5)
+- **Validation Rule:**
+  Ensuring balanced icon distribution in icon set generation
+- **Note (additional feature):**
+  It might be possible to add weights field for each tags, so when a user chooses tags in the request, adding weights can be influential in icon distribution
+
+## Icon Usage Control
+- **Problem:**
+  If one icon is used many times, it will become hot icon and more visible in icon set generations. In current version, there is no possibility to enabdle/disable icons (temporarily) so by default each icon is active.
+- **Possible approach:**
+  There can be a logic to dynamically change/calculate weights of tags/icons based on usage frequence. 
+
   
 
 
