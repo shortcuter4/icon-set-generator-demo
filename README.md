@@ -97,7 +97,7 @@ Internally calls the PostgreSQL function `generateSetFromTags`.
 
   ![Generate Icon Set - Sequence Flow Diagram](generate-icons-set.png)
 
-3. Tables 
+3. Entity relationship diagram 
 
   ![Tables Diagram](diagram-draft2.png)
 
