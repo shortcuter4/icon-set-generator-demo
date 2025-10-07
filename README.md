@@ -1,7 +1,6 @@
 # Introduction
 
-**Icon Set Generator Demo** is a Spring Boot-based backend service designed to generate optimized icon sets based on user-provided tags.  
-It efficiently handles icon metadata using PostgreSQL with advanced bitmap indexing (`roaringbitmap`) and integrates with **MinIO** for object storage.
+**Icon Set Generator Demo** is a Spring Boot-based backend service designed to generate optimized icon sets based on user-provided tags. It efficiently handles icon metadata using PostgreSQL with advanced bitmap indexing (`roaringbitmap`) and integrates with **MinIO** for object storage.
 
 ### Key Features
 - Dynamic icon set generation based on tag combinations  
@@ -18,8 +17,42 @@ It efficiently handles icon metadata using PostgreSQL with advanced bitmap index
 
 # API Endpoints
 
+##  1. Icon Upload API
 
-##  1. Icon Set Generator API
+### **POST /api/icons/upload**
+Upload an icon with its metadata to corresponding database (postgres + minIO)
+
+
+**Description:**  
+Uploads a single icon along with its metadata (tags, category, etc.).
+
+**Metadata JSON Structure**
+```json
+{   
+ "category": "vehicles",  
+ "tags": [{"name": "favorite"}, {"name": "cars"}] 
+} 
+
+
+```
+
+**Response (success) Example:**
+```json
+{
+    "id": 93,
+    "name": "vehicles/1759822332856.png",
+    "tags": [
+        "favorite",
+        "cars"
+    ],
+    "category": "vehicles"
+}
+```
+
+
+
+
+##  2. Icon Set Generator API
 
 ### **POST /api/icon-sets/generate**
 
