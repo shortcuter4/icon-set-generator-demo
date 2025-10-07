@@ -87,3 +87,22 @@ Internally calls the PostgreSQL function `generateSetFromTags`.
 }
 ```
 
+# Diagrams
+
+1. Sequence flow: Upload File Scenario 
+
+  ![Upload File Scenario - Sequence Flow Diagram](upload-file.png)
+
+2. Sequence flow: Generate Icon Set
+
+  ![Generate Icon Set - Sequence Flow Diagram](generate-icons-set.png)
+
+3. Tables 
+
+  ![Tables Diagram](diagram-draft2.png)
+
+3. DB Schema 
+
+  ![Tables Diagram](diagram-draft1.png)
+
+
